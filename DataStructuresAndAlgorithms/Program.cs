@@ -1,4 +1,5 @@
-﻿using DataStructuresAndAlgorithms.CodingChallenges;
+﻿using DataStructuresAndAlgorithms.Arrays;
+using DataStructuresAndAlgorithms.CodingChallenges;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,6 @@ namespace DataStructuresAndAlgorithms
     {
         static void Main(string[] args)
         {
-
         }
     }
 }
