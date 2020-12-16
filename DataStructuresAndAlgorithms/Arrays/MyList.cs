@@ -50,5 +50,24 @@ namespace DataStructuresAndAlgorithms
 
             return lastItem;
         }
+
+        public object Delete(int index)
+        {
+            var item = Data[index];
+
+            ShiftItems(index);
+
+            return item;
+        }
+
+        private void ShiftItems(int index)
+        {
+            for (int i = index; i < Length - 1; i++)
+            {
+                Data[i] = Data[i + 1];
+            }
+            Data[Length - 1] = null;
+            Length--;
+        }
     }
 }
