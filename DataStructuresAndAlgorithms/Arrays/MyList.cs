@@ -41,5 +41,14 @@ namespace DataStructuresAndAlgorithms
         {
             return Data[index];
         }
+
+        public object Pop()
+        {
+            var lastItem = Data[Length - 1];
+            Data[Length - 1] = null;
+            Length--;
+
+            return lastItem;
+        }
     }
 }

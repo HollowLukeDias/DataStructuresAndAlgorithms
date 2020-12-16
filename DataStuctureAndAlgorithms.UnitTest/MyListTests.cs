@@ -69,5 +69,34 @@ namespace DataStuctureAndAlgorithms.UnitTest
         {
             Assert.That(() => list.Get(2), Throws.Exception);
         }
+
+        [Test]
+        public void Pop_WhenCalledAndListHasItems_RemoveTheItem()
+        {
+            list.Push(100);
+            list.Push("all");
+            list.Pop();
+
+            Assert.That(list.Get(1), Is.EqualTo(null));
+        }
+
+
+        [Test]
+        public void Pop_WhenCalledAndListHasItems_ReturnsRightObject()
+        {
+            list.Push(100);
+            list.Push("lala");
+
+            var item = list.Pop();
+
+            Assert.That(item, Is.EqualTo("lala"));
+        }
+
+        [Test]
+        public void Pop_WhenCalledAndListHasNoItems_ThrowsException()
+        {
+            Assert.That(() => list.Pop(), Throws.Exception);
+        }
+
     }
 }
