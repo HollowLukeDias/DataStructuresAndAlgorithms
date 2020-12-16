@@ -1,5 +1,4 @@
-﻿using DataStructuresAndAlgorithms.Arrays;
-using DataStructuresAndAlgorithms.CodingChallenges;
+﻿using DataStructuresAndAlgorithms.CodingChallenges;
 using System;
 using System.Collections.Generic;
 
@@ -9,6 +8,10 @@ namespace DataStructuresAndAlgorithms
     {
         static void Main(string[] args)
         {
+            var list = new MyList();
+
+            list.Push(1);
+            list.Push(2);
         }
     }
 }
