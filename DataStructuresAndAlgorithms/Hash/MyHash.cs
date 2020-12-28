@@ -4,77 +4,23 @@ using System.Text;
 
 namespace DataStructuresAndAlgorithms.Hash
 {
-
-    class Node
-    {
-        public string Key { get; set; }
-        public int Value  { get; set; }
-
-        public Node(string key, int value)
-        {
-            Key = key;
-            Value = value;
-        }
-    }
-
     public class MyHash
     {
-        private class Nodes
-        {
-            public List<Node> insideNodes;
-        }
-
-        private Nodes[] _data;
-        private int _length;
-
-        public MyHash(int size)
-        {
-            _data = new Nodes[size];
-            _length = size;
-        }
-
-        public int Hash(string key)
+        public static int Hash(string key, int length)
         {
             var hash = 0;
             var helperNumber = 0;
+
+            if (key.Length == 1)
+                return key[0] % length;
+
             foreach (var letter in key)
             {
-                hash = (hash + letter * helperNumber) % _length;
+                hash = (hash + letter * helperNumber) % length;
                 helperNumber++;
             }
 
             return hash;
-        }
-
-        public void Set(string key, int value)
-        {
-            var hash = Hash(key);
-            var node = new Node(key, value);
-
-            if (_data[hash] == null)
-            {
-                _data[hash] = new Nodes();
-                _data[hash].insideNodes = new List<Node>();
-            }
-                
-
-            _data[hash].insideNodes.Add(node);
-        }
-
-        public int Get(string key)
-        {
-            var hash = Hash(key);
-            if (_data[hash] == null)
-                return 0;
-
-            foreach (var node in _data[hash].insideNodes)
-            {
-                if (node.Key.Equals(key))
-                {
-                    return node.Value;
-                }
-            }
-            return 0;
         }
     }
 }

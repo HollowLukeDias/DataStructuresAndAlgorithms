@@ -10,12 +10,12 @@ namespace DataStuctureAndAlgorithms.UnitTest
     class MyHashTests
     {
 
-        private MyHash _hash;
+        private MyHashTable _hash;
 
         [SetUp]
         public void SetUp()
         {
-            _hash = new MyHash(100);
+            _hash = new MyHashTable(100);
         }
 
         [TestCase("A", 65)]
@@ -24,7 +24,7 @@ namespace DataStuctureAndAlgorithms.UnitTest
         [TestCase("z", 22)]
         public void Hash_SingleCharString_ShouldReturnCharCodeModSize(string oneChar, int expectedResult)
         {
-            Assert.That(_hash.Hash(oneChar), Is.EqualTo(expectedResult));
+            Assert.That(MyHash.Hash(oneChar, _hash.Length), Is.EqualTo(expectedResult));
         }
 
         [TestCase("AA", 65)]
@@ -40,7 +40,7 @@ namespace DataStuctureAndAlgorithms.UnitTest
         [TestCase("xxx", 60)]
         public void Hash_MultipleCharString_DoesTheFunctionProperly(string multipleChar, int expectedResult)
         {
-            Assert.That(_hash.Hash(multipleChar), Is.EqualTo(expectedResult));
+            Assert.That(MyHash.Hash(multipleChar, _hash.Length), Is.EqualTo(expectedResult));
         }
 
         [TestCase("aaa", 103)]
