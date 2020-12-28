@@ -9,25 +9,6 @@ namespace DataStructuresAndAlgorithms
     {
         static void Main()
         {
-            var hash = new MyHashTable(2);
-
-            hash.Set("Lucas", 10291);
-            hash.Set("Lucas", 129);
-            hash.Set("Jenn", 10000000);
-            hash.Set("Sephiroph", 0);
-            hash.Set("Cloud", 29);
-            hash.Set("Aerith", 27);
-            Console.WriteLine(hash.Get("Lucas"));
-            Console.WriteLine(hash.Get("Jenn"));
-            Console.WriteLine(hash.Get("Sephiroph"));
-            Console.WriteLine(hash.Get("Cloud"));
-            Console.WriteLine(hash.Get("Aerith"));
-            Console.WriteLine();
-            foreach (var key in hash.Keys())
-            {
-                Console.WriteLine(key);
-            }
-
 
         }
     }
