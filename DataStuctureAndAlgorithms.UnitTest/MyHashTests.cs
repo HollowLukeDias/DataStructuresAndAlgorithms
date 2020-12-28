@@ -55,5 +55,38 @@ namespace DataStuctureAndAlgorithms.UnitTest
             _hash.Set(key, value);
             Assert.That(_hash.Get(key), Is.EqualTo(value));
         }
+
+        [Test]
+        public void Set_EqualKeys_ChangeValueOnly()
+        {
+            _hash.Set("Lucas", 123);
+            _hash.Set("Lucas", 342);
+
+            Assert.That(_hash.Get("Lucas"), Is.EqualTo(342));
+        }
+
+        [Test]
+        public void Keys_WhenDataIsNotEmpty_ShowsEveryKey()
+        {
+            _hash.Set("Lucas", 1);
+            _hash.Set("Sephiroth", 2);
+            _hash.Set("Jenn", 3);
+            _hash.Set("Tifa", 4);
+
+            var correctList = new List<string> { "Lucas", "Sephiroth", "Jenn", "Tifa" };
+
+            Assert.That(_hash.Keys(), Is.EquivalentTo(correctList));
+        }
+
+        [Test]
+        public void Keys_WhenSetsEqualKeys_ReturnTheKeyOnlyOnce()
+        {
+            _hash.Set("Lucas", 1);
+            _hash.Set("Lucas", 2);
+
+            var correctList = new List<string> { "Lucas" };
+
+            Assert.That(_hash.Keys(), Is.EqualTo(correctList));
+        }
     }
 }

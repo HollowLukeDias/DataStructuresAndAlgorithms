@@ -45,6 +45,17 @@ namespace DataStructuresAndAlgorithms.Hash
                     insideNodes = new List<Node>()
                 };
             }
+            else
+            {
+                foreach (var insideNode in _data[hash].insideNodes)
+                {
+                    if (insideNode.Key == key)
+                    {
+                        insideNode.Value = value;
+                        return;
+                    }
+                }
+            }
                 
 
             _data[hash].insideNodes.Add(node);
@@ -64,6 +75,22 @@ namespace DataStructuresAndAlgorithms.Hash
                 }
             }
             return 0;
+        }
+
+        public List<string> Keys()
+        {
+            var keysList = new List<string>();
+            foreach (var node in _data)
+            {
+                if (node != null)
+                {
+                    foreach (var insideNode in node.insideNodes)
+                    {
+                        keysList.Add(insideNode.Key);
+                    }
+                }
+            }
+            return keysList;
         }
     }
 }
