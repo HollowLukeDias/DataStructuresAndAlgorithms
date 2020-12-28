@@ -33,13 +33,13 @@ namespace DataStructuresAndAlgorithms.Hash
             _length = size;
         }
 
-        private int Hash(string key)
+        public int Hash(string key)
         {
             var hash = 0;
             var helperNumber = 0;
             foreach (var letter in key)
             {
-                hash = (hash + letter * helperNumber) % key.Length;
+                hash = (hash + letter * helperNumber) % _length;
                 helperNumber++;
             }
 
@@ -52,7 +52,11 @@ namespace DataStructuresAndAlgorithms.Hash
             var node = new Node(key, value);
 
             if (_data[hash] == null)
+            {
                 _data[hash] = new Nodes();
+                _data[hash].insideNodes = new List<Node>();
+            }
+                
 
             _data[hash].insideNodes.Add(node);
         }
