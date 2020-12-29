@@ -14,7 +14,7 @@ namespace DataStructuresAndAlgorithms.LinkedList
             Data = data;
         }
     }
-    class MyLinkedList
+    public class MyLinkedList
     {
         private Node _head;
         private Node _tail;
@@ -42,7 +42,7 @@ namespace DataStructuresAndAlgorithms.LinkedList
             var temp = _head;
             _head = newNode;
             newNode.NextNode = temp;
-            Size--;
+            Size++;
         }
 
         public void Insert(int index, int data)
@@ -66,6 +66,7 @@ namespace DataStructuresAndAlgorithms.LinkedList
             var prevNode = GetNode(index - 1);
             var nextNode = GetNode(index + 1);
             prevNode.NextNode = nextNode;
+            Size--;
         }
 
         public int? Get(int index)
