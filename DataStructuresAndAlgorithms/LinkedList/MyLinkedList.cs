@@ -18,36 +18,54 @@ namespace DataStructuresAndAlgorithms.LinkedList
     {
         private Node _head;
         private Node _tail;
+        public int Size;
+
+        public MyLinkedList(int data)
+        {
+            var newNode = new Node(data);
+            _head = newNode;
+            _tail = newNode;
+            Size = 1;
+        }
 
         public void Append(int data)
         {
             var newNode = new Node(data);
-            if (_head == null)
-            {
-                _head = newNode;
-                _tail = newNode;
-            }
-            else
-            {
-                _tail.NextNode = newNode;
-                _tail = newNode;
-            }
+            _tail.NextNode = newNode;
+            _tail = newNode;
+            Size++;
         }
 
         public void Prepend(int data)
         {
             var newNode = new Node(data);
-            if (_head == null)
+            var temp = _head;
+            _head = newNode;
+            newNode.NextNode = temp;
+            Size--;
+        }
+
+        public void Insert(int index, int data)
+        {
+            var newNode = new Node(data);
+            if (index == 0)
             {
-                _head = newNode;
-                _tail = newNode;
+                Prepend(data);
+                return;
             }
-            else
-            {
-                var temp = _head;
-                _head = newNode;
-                newNode.NextNode = temp;
-            }
+
+            var prevNode = GetNode(index - 1);
+            var currentNode = GetNode(index);
+            prevNode.NextNode = newNode;
+            newNode.NextNode = currentNode;
+            Size++;
+        }
+
+        public void RemoveAt(int index)
+        {
+            var prevNode = GetNode(index - 1);
+            var nextNode = GetNode(index + 1);
+            prevNode.NextNode = nextNode;
         }
 
         public int? Get(int index)
@@ -91,22 +109,6 @@ namespace DataStructuresAndAlgorithms.LinkedList
             }
             list.Add(currentNode.Data);
             return list;
-        }
-
-        public void Insert(int index, int data)
-        {
-            var newNode = new Node(data);
-            if (index == 0)
-            {
-                Prepend(data);
-                return;
-            }
-
-            var prevNode = GetNode(index - 1);
-            var currentNode = GetNode(index);
-            prevNode.NextNode = newNode;
-            newNode.NextNode = currentNode;
-
         }
     }
 }
