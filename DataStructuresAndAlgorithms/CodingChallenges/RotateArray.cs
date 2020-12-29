@@ -85,7 +85,7 @@ namespace DataStructuresAndAlgorithms.CodingChallenges
                 do
                 {
                     var next = (current + modSteps) % length;
-                    int temp = array[next];
+                    var temp = array[next];
                     array[next] = prev;
                     prev = temp;
                     current = next;
