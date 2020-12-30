@@ -14,7 +14,7 @@ namespace DataStructuresAndAlgorithms.LinkedList
             Data = data;
         }
     }
-    public class MyLinkedList
+    public class MyLinkedList : ILinkedList
     {
         private Node _head;
         private Node _tail;
@@ -90,12 +90,8 @@ namespace DataStructuresAndAlgorithms.LinkedList
 
             var currentNode = _head;
             for (int i = 0; i < index; i++)
-            {
-                if (currentNode.NextNode == null)
-                    return null;
-
                 currentNode = currentNode.NextNode;
-            }
+
             return currentNode;
         }
 
