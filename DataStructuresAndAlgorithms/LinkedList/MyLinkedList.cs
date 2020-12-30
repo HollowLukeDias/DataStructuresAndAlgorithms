@@ -107,5 +107,29 @@ namespace DataStructuresAndAlgorithms.LinkedList
             list.Add(currentNode.Data);
             return list;
         }
+
+
+        // Draw the node connections in a paper
+        // Then try to think only of the pointers
+        // Basically, you are reversing the pointers of two nodes and then going to the next two nodes to reverse them afterwards
+        public void Reverse()
+        {
+            if (Size == 1)
+                return;
+
+            var first = _head;
+            var second = _head.NextNode;
+
+            while (second != null)
+            {
+                var temp = second.NextNode;
+                second.NextNode = first;
+                first = second;
+                second = temp;
+            }
+            _head.NextNode = null;
+            _head = first;
+
+        }
     }
 }
