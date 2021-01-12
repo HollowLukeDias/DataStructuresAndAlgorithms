@@ -36,6 +36,7 @@ namespace DataStructuresAndAlgorithms.Tree
                             currentNode.LeftNode = newNode;
                         else if (value > currentNode.Value)
                             currentNode.RightNode = newNode;
+
                         return;
 
                     }
@@ -49,17 +50,19 @@ namespace DataStructuresAndAlgorithms.Tree
         {
             BinaryTreeNode currentNode = _root;
             BinaryTreeNode nextNode;
+
+            if (value == _root.Value)
+                return true;
+
             while (true)
             {
                 nextNode = (value < currentNode.Value) ? currentNode.LeftNode : currentNode.RightNode;
+                
                 if (nextNode == null)
-                {
                     return false;
-                }
                 else if (nextNode.Value == value)
-                {
                     return true;
-                }
+
                 currentNode = nextNode;
             }
         }

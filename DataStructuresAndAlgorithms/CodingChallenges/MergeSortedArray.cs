@@ -38,7 +38,8 @@ namespace DataStructuresAndAlgorithms.CodingChallenges
         }
 
         // O(N * log N) - Bad Time Complexity
-        // O(N) - Space Complexity
+        // O(N) - Fair Space Complexity
+        // Cheated
         public static List<int> BadMerge(List<int> array1, List<int> array2)
         {
             if (array1.Count == 0 && array2.Count == 0) return null;
@@ -53,5 +54,6 @@ namespace DataStructuresAndAlgorithms.CodingChallenges
             array3.Sort();
             return array3;
         }
+
     }
 }

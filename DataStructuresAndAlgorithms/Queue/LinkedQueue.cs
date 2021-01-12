@@ -50,8 +50,11 @@ namespace DataStructuresAndAlgorithms.Queue
                 return null;
             else if (_length == 1)
             {
-
+                _top = null;
+                _bottom = null;
+                return _top;
             }
+            return null;
         }
 
     }
