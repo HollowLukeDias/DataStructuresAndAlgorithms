@@ -72,6 +72,32 @@ namespace DataStructuresAndAlgorithms.Tree
             }
         }
 
+        public BinaryTreeNode GetNode(int value)
+        {
+            BinaryTreeNode currentNode = Root;
+            BinaryTreeNode nextNode;
+
+            if (value == Root.Value)
+                return Root;
+
+            while (true)
+            {
+                nextNode = (value < currentNode.Value) ? currentNode.LeftNode : currentNode.RightNode;
+
+                if (nextNode == null)
+                    return null;
+                else if (nextNode.Value == value)
+                    return nextNode;
+
+                currentNode = nextNode;
+            }
+        }
+
+        public void Delete(int value)
+        {
+
+        }
+
         public List<string> Traverse(BinaryTreeNode node, List<string> stringTree)
         {
             stringTree.Add(node.Value.ToString());
