@@ -16,7 +16,7 @@ namespace DataStructuresAndAlgorithms.CodingChallenges
             this.right = right;
         }
     }
-    class BinaryTreeMaxDepth
+    class BinaryTreeDepth
     {
         public int MaxDepth(TreeNode root)
         {
@@ -35,6 +35,25 @@ namespace DataStructuresAndAlgorithms.CodingChallenges
                 maxRight = MaxDepth(root.right) + 1;
 
             return (maxLeft <= maxRight) ? maxLeft : maxRight;
+        }
+
+        public int MinDepth(TreeNode root)
+        {
+            var maxRight = 0;
+            var maxLeft = 0;
+            if (root == null)
+                return 0;
+
+            if (root.left == null && root.right == null)
+                return 1;
+
+            if (root.left != null)
+                maxLeft = MinDepth(root.left) + 1;
+
+            if (root.right != null)
+                maxRight = MinDepth(root.right) + 1;
+
+            return ((maxLeft <= maxRight || maxRight == 0) && maxLeft != 0) ? maxLeft : maxRight;
         }
     }
 }
