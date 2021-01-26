@@ -13,6 +13,7 @@ namespace DataStructuresAndAlgorithms
     {
         static void Main()
         {
+            var nice = "nice";
         }
     }
 }
