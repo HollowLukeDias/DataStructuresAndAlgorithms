@@ -109,5 +109,23 @@ namespace DataStructuresAndAlgorithms.CodingChallenges
             seconds = (float)(end - start).TotalMilliseconds;
             return (seconds, false);
         }
+
+        // O(N) - Time Complexity
+        // O(N) - Space Complexity
+        // Wants the index to be returned
+        public int[] TwoSum(int[] nums, int target)
+        {
+            var valueIndex = new Dictionary<int, int>(); 
+            for (var index = 0; index < nums.Length; index++)
+            {
+                if (valueIndex.ContainsKey(nums[index]))
+                {
+                    return new int[] { valueIndex[nums[index]], index };
+                }
+
+                valueIndex.Add(target - nums[index], index);
+            }
+            return new int[1];
+        }
     }
 }

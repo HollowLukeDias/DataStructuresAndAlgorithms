@@ -40,19 +40,19 @@ namespace DataStructuresAndAlgorithms.CodingChallenges
         // O(N * log N) - Bad Time Complexity
         // O(N) - Fair Space Complexity
         // Cheated
-        public static List<int> BadMerge(List<int> array1, List<int> array2)
+        public static int[] BadMerge(int[] nums1, int[] nums2)
         {
-            if (array1.Count == 0 && array2.Count == 0) return null;
-            if (array1.Count == 0) return array2;
-            if (array2.Count == 0) return array1;
+            if (nums1.Length == 0 && nums2.Length == 0) return null;
+            if (nums2.Length == 0) return nums1;
+            if (nums1.Length == 0) return nums2;
 
 
             var array3 = new List<int>();
-            array3.AddRange(array1);
-            array3.AddRange(array2);
+            array3.AddRange(nums1);
+            array3.AddRange(nums2);
 
             array3.Sort();
-            return array3;
+            return array3.ToArray();
         }
 
     }
